@@ -32,20 +32,23 @@
       });
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', () => {
       const element = document.getElementById('ex3_element');
-      const containers = [document.getElementById('ex3_one'), document.getElementById('ex3_two')];
+      const containers = [
+        document.getElementById('ex3_one'),
+        document.getElementById('ex3_two'),
+      ];
 
-      element.addEventListener('dragstart', function (e) {
+      element.addEventListener('dragstart', (e) => {
         e.dataTransfer.setData('text/plain', 'ex3_element');
       });
 
-      containers.forEach(container => {
-        container.addEventListener('dragover', function (e) {
+      containers.forEach((container) => {
+        container.addEventListener('dragover', (e) => {
           e.preventDefault();
         });
 
-        container.addEventListener('drop', function (e) {
+        container.addEventListener('drop', (e) => {
           e.preventDefault();
           const data = e.dataTransfer.getData('text/plain');
           if (data === 'ex3_element') {
